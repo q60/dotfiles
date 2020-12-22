@@ -4,6 +4,15 @@
 
 { config, pkgs, ... }: {
   imports = [ ./hardware-configuration.nix ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    pulseaudio = true;
+    packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
+    };
+  };
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     loader = {
