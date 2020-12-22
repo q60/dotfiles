@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function check_window_state() {
+  xprop -id $(xprop -root _NET_ACTIVE_WINDOW | awk '{ print $NF; }') | grep "_NET_WM_STATE(ATOM)" | awk '{ print $NF; }' | xargs
+}
+
+function start() {
+  # explicitly terminating already running bar instances
+  kill -9 $(pgrep -f 'polybar') >/dev/null 2>&1
+  killall -q polybar
+  while pgrep -u $UID -x polybar >/dev/null;
+  do
+    sleep 1;
+  done
+
+  WM_RESTACK="$1" polybar -c ~/.config/polybar/rice.ini a -r >/dev/null 2>&1 & disown
+  WM_RESTACK="$1" polybar -c ~/.config/polybar/rice.ini b -r >/dev/null 2>&1 & disown
+  WM_RESTACK="$1" polybar -c ~/.config/polybar/rice.ini c -r >/dev/null 2>&1 & disown
+  WM_RESTACK="$1" polybar -c ~/.config/polybar/rice.ini d -r >/dev/null 2>&1 & disown
+  echo "$1" # yielding status
+}
+
+start bspwm
+
+while true;
+do
+  if [[ $(check_window_state) == "_NET_WM_STATE_FULLSCREEN" ]];
+  then
+    [[ $status != "i3" ]]    && status=$(start i3)
+  else
+    [[ $status != "bspwm" ]] && status=$(start bspwm)
+  fi
+  sleep 10
+done

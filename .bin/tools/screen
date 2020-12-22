@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+base_path=~/Pictures/Screenshots
+name=$(date +"%H:%M:%S").png
+year=$(date +"%Y")
+date=$(date +"%d-%b")
+mkdir $base_path/$year       > /dev/null 2>&1
+mkdir $base_path/$year/$date > /dev/null 2>&1
+path=$base_path/$year/$date/$name
+scrot $path
+xclip -selection clipboard -t image/png $path

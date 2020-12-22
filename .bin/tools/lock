@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+bg='/tmp/screen.png'
+scrot $bg
+convert $bg -blur 0x12 $bg
+i3lock -u -i $bg && rm $bg

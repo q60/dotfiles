@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+rofi -combi-modi window,drun            \
+  -no-lazy-grab -show combi             \
+  -display-window "win"                 \
+  -display-drun   "run"                 \
+  -display-combi  "search"              \
+  -hide-scrollbar true                  \
+  -bw 0                                 \
+  -lines 15                             \
+  -line-padding 10                      \
+  -padding 20                           \
+  -width 30                             \
+  -xoffset 1150 -yoffset -490           \
+  -location 7                           \
+  -columns 1                            \
+  -show-icons -icon-theme "Tela-circle" \
+  -color-enabled true

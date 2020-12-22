@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+gr="\x1B[32m"
+ye="\x1B[33m"
+re="\x1B[0m"
+
+if [ $# != 0 ];
+then
+  exec ~/.bin/$@
+else
+  echo -e "$gr""bin$re 1.0.0"
+  echo "Llathasa Veleth <llathasa@outlook.com>"
+  echo -e "Custom scripts evaluator.\n"
+  echo -e "$ye""USAGE:$re\n\t""bin $gr<SCRIPT>$re"
+  exit 1
+fi
