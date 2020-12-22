@@ -7,4 +7,8 @@ Nothing special. Just my configs, color schemes, binaries, etc.
 
 --
 
-![disfetch](https://i.imgur.com/pOlG5ph.png)
+![disfetch and dunst](https://i.imgur.com/pOlG5ph.png)
+
+--
+
+![rofi](https://i.imgur.com/z1cs9ym.png)
