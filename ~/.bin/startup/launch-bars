@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# this launch script launches polybar bars and also it checks
+# whether the active window is fullscreen or not.
+# if window is fullscreen, it restarts polybar with `wm-restack = i3`
+# so the bars are below the window.
+# else: it restarts polybar with `wm-restack = bspwm`
+# so the bars are now clickable.
+
 function check_window_state() {
   xprop -id $(xprop -root _NET_ACTIVE_WINDOW | awk '{ print $NF; }') | grep "_NET_WM_STATE(ATOM)" | awk '{ print $NF; }' | xargs
 }
