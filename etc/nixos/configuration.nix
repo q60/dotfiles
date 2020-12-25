@@ -105,14 +105,6 @@
       ];
       shell = pkgs.fish;
     };
-    vel = {
-      isNormalUser = true;
-      extraGroups = [
-        "wheel"
-        "audio"
-      ];
-      shell = pkgs.fish;
-    };
   };
 
   xdg.portal.enable = true;
