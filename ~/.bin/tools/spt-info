@@ -10,7 +10,7 @@ then
 	# the issue is that i am using all-lowercase style on my bars, so lowercase 'i'
 	# doesn't look like 'ӏ', while uppercase 'I' is pretty similar to 'ӏ'.
 	INFO=($SPT_ARTIST -)
-	echo $SPT_TITLE | grep "[а-я]" >/dev/null && INFO+="$(echo $SPT_TITLE | sed -E "s/i/ӏ/")" || INFO+=($SPT_TITLE)
+	echo $SPT_TITLE | grep "[а-я]" > /dev/null && INFO+=("$(echo $SPT_TITLE | sed -E "s/i/ӏ/")") || INFO+=($SPT_TITLE)
 	echo ${INFO[@]}
 else
 	echo ''
