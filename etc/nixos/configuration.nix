@@ -76,7 +76,7 @@
       };
       videoDrivers = [ "nvidia" ];
     };
-    flatpak.enable = true;
+    ratbagd.enable = true;
   };
 
   # Enable CUPS to print documents.
