@@ -104,6 +104,10 @@
         "audio"
       ];
       shell = pkgs.fish;
+      packages = with pkgs; [
+        wineWowPackages.stable
+        lutris
+      ];
     };
   };
 
