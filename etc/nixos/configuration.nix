@@ -34,6 +34,8 @@
       terminus_font
       font-awesome-ttf
       ubuntu_font_family
+      liberation_ttf
+      dejavu_fonts
     ];
   };
 
