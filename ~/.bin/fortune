@@ -59,7 +59,7 @@ normal_scale = [i for i in range(2, tty_width_fixed)]
 try:
   first_part_floor = '━'*round(normal_scale[normal_width.index(tty_width_fixed-1)])
 
-  print(f"{_frame_color}┗{first_part_floor}┳{'━'*(tty_width-len(first_part_floor)-3)}╣{_reset_color}")
+  print(f"{_frame_color}┗{first_part_floor}┳{'━'*(tty_width-len(first_part_floor)-3)}┫{_reset_color}")
 
   current_date = strftime("%A, %d", localtime())
   current_time = strftime("%I:%M %p", localtime())
