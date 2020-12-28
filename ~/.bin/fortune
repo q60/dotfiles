@@ -35,7 +35,7 @@ except exceptions.ConnectionError:
   successful = False
   quoteAuthor = "Failed to estabilish internet connection. Try again"
 
-print(f"{_frame_color}╔{'═'*(tty_width_fixed)}╗{_reset_color}")
+print(f"{_frame_color}┏{'━'*(tty_width_fixed)}┓{_reset_color}")
 
 if successful:
   splitter = textwrap.TextWrapper(width = round(tty_width*0.9))
@@ -43,23 +43,23 @@ if successful:
   splitted_text[0] = "«"+splitted_text[0]
   splitted_text[-1] = splitted_text[-1]+"»"
   [
-    print(f"{_frame_color}║{_reset_color} {_quote_color}{line}{_reset_color}{' '*(tty_width-len(line)-4)} {_frame_color}║{_reset_color}")
+    print(f"{_frame_color}┃{_reset_color} {_quote_color}{line}{_reset_color}{' '*(tty_width-len(line)-4)} {_frame_color}┃{_reset_color}")
     for line in splitted_text
   ]
 if quoteAuthor:
   splitter = textwrap.TextWrapper(width = round(tty_width*0.9))
   quoteAuthor = splitter.wrap(text = quoteAuthor)
   [
-    print(f"{_frame_color}║{_reset_color} {_author_color}{line}{_reset_color}{' '*(tty_width-len(line)-4)} {_frame_color}║{_reset_color}")
+    print(f"{_frame_color}┃{_reset_color} {_author_color}{line}{_reset_color}{' '*(tty_width-len(line)-4)} {_frame_color}┃{_reset_color}")
     for line in quoteAuthor
   ]
 
 normal_width = [i for i in range(24, tty_width_fixed)]
 normal_scale = [i for i in range(2, tty_width_fixed)]
 try:
-  first_part_floor = '═'*round(normal_scale[normal_width.index(tty_width_fixed-1)])
+  first_part_floor = '━'*round(normal_scale[normal_width.index(tty_width_fixed-1)])
 
-  print(f"{_frame_color}╚{first_part_floor}╦{'═'*(tty_width-len(first_part_floor)-3)}╣{_reset_color}")
+  print(f"{_frame_color}┗{first_part_floor}┳{'━'*(tty_width-len(first_part_floor)-3)}╣{_reset_color}")
 
   current_date = strftime("%A, %d", localtime())
   current_time = strftime("%I:%M %p", localtime())
@@ -78,12 +78,12 @@ try:
     uptime[1] = "hours"
   uptime = ' '.join(map(str, uptime))
 
-  print(f"""{' '*(len(first_part_floor)+1)}{_frame_color}║{_reset_color} {_keywords_color}Date:{_reset_color}{' '*(tty_width-len(first_part_floor)-10-len(current_date))}{_datetime_color}{current_date}{_reset_color} {_frame_color}║{_reset_color}""")
+  print(f"""{' '*(len(first_part_floor)+1)}{_frame_color}┃{_reset_color} {_keywords_color}Date:{_reset_color}{' '*(tty_width-len(first_part_floor)-10-len(current_date))}{_datetime_color}{current_date}{_reset_color} {_frame_color}┃{_reset_color}""")
 
-  print(f"{' '*(len(first_part_floor)+1)}{_frame_color}║{_reset_color} {_keywords_color}Time:{_reset_color}{' '*(tty_width-len(first_part_floor)-10-len(current_time))}{_datetime_color}{current_time}{_reset_color} {_frame_color}║{_reset_color}")
+  print(f"{' '*(len(first_part_floor)+1)}{_frame_color}┃{_reset_color} {_keywords_color}Time:{_reset_color}{' '*(tty_width-len(first_part_floor)-10-len(current_time))}{_datetime_color}{current_time}{_reset_color} {_frame_color}┃{_reset_color}")
 
-  print(f"{' '*(len(first_part_floor)+1)}{_frame_color}║{_reset_color} {_keywords_color}Uptime:{_reset_color}{' '*(tty_width-len(first_part_floor)-12-len(uptime))}{_datetime_color}{uptime}{_reset_color} {_frame_color}║{_reset_color}")
+  print(f"{' '*(len(first_part_floor)+1)}{_frame_color}┃{_reset_color} {_keywords_color}Uptime:{_reset_color}{' '*(tty_width-len(first_part_floor)-12-len(uptime))}{_datetime_color}{uptime}{_reset_color} {_frame_color}┃{_reset_color}")
 
-  print(f"""{_frame_color}{' '*(len(first_part_floor)+1)}╚{'═'*(tty_width-len(first_part_floor)-3)}╝{_reset_color}""")
+  print(f"""{_frame_color}{' '*(len(first_part_floor)+1)}┗{'━'*(tty_width-len(first_part_floor)-3)}┛{_reset_color}""")
 except ValueError:
-  print(f"{_frame_color}╚{'═'*(tty_width_fixed)}╝{_reset_color}")
+  print(f"{_frame_color}┗{'━'*(tty_width_fixed)}┛{_reset_color}")
