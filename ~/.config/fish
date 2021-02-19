@@ -1,0 +1,20 @@
+starship init fish | source
+#if [ $TERM != "xterm-kitty" ]
+#  tmux
+#	 clear
+#end
+#function fish_right_prompt -d "Write out the right prompt"
+#	set_color green
+#	echo -n -e "\033[1m⎦\033[0m"
+#end
+set -Ux EDITOR nvim
+alias @="sudo"
+alias e="nvim"
+alias E="nvim"
+alias H="~/.bin/bin"
+alias cat="H cat"
+alias nix-shell="nix-shell --command fish"
+function fish_greeting
+	H fortune
+	H disfetch
+end
