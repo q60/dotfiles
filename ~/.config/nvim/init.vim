@@ -101,12 +101,12 @@ func Highlight()
 	exe 'syn region matchUnderline matchgroup=matchUnderlineDelimiter start="_" end="_" keepend contains=matchLineStart' . s:concealends
 	exe 'syn region matchItalic matchgroup=matchItalicDelimiter start="`" end="`" keepend contains=matchLineStart' . s:concealends
 	exe 'syn region matchBold matchgroup=matchBoldDelimiter start="\$" end="\$" keepend contains=matchLineStart' . s:concealends
-  hi Normal          guifg=#2F9FF7
+  hi Normal          guifg=#79C1FA
   hi matchUnderline  gui=underline
 	hi matchItalic		 gui=italic
 	hi matchBold			 gui=bold
-  hi matchURL        guifg=#FF62C4 gui=bold
-  hi matchElse       guifg=#FFAE62
+  hi matchURL        guifg=#FFAFE1 gui=bold
+  hi matchElse       guifg=#FFD5AF
   setl conceallevel=2
 endf
 
@@ -119,7 +119,7 @@ func ReadUrl()
 		if url =~? '^https\?:\/\/[[:alnum:]%?=\/_#.-]*$'
 			let urlFormed = '[' . url . ']'
 			call setline(lineNu, urlFormed)
-			let videoName = substitute(trim(system("wget '" . url . ''' -q -O - | cat | grep -oP ''(?<=\<meta itemprop="name" content=").*(?=">)''')), '[3 q', '', 'g')
+			let videoName = substitute(trim(system("wget '" . url . ''' -q -O - | cat | grep -oP ''(?<="title":{"simpleText":").*(?="},"description")''')), '[3 q', '', 'g')
 			call setline(lineNu, urlFormed . ' :: ' . videoName)
 		else
 			if !url =~? '[https\?:\/\/[[:alnum:]%?=\/_#.-]*]'
