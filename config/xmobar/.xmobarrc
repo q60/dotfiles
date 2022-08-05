@@ -1,0 +1,31 @@
+Config { overrideRedirect = False
+       , font     = "xft:terminus (ttf)-11"
+       , bgColor  = "#1C211C"
+       , fgColor  = "#E9E4D2"
+       , position = Top
+       , commands = [ Run Cpu
+                        [ "-L", "3"
+                        , "-H", "50"
+                        , "--high"  , "#B2555B"
+                        , "--normal", "#B2AA55"
+                        ] 10
+                    , Run Volume "default" "Master"
+                        [ "--"
+                        , "--onc" , "#B2AA55"
+                        , "--offc", "#B2555B"
+                        ] 10
+                    , Run Kbd []
+                    , Run Mpris2 "spotify"
+                        [ "-t"
+                        , "<artist> - <title> [<tracknumber>]"
+                        ] 10
+                    , Run Memory ["--template", "Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %Y-%m-%d <fc=#EDAE53>%H:%M</fc>" "date" 10
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%XMonadLog% | <fc=#9255B2>Now playing:</fc> %mpris2% }{ %default:Master% | %kbd% | %cpu% | %memory% * %swap% | %date% "
+       }
+

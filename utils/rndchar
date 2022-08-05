@@ -1,0 +1,6 @@
+#!/bin/env python
+import random
+
+char = random.choice("ℲҡʀⱯÞѷkƅēŒĘꝚѮƨɐѽӬĪԐcFEꝲʌҾһrɑѴɒðⱻɐVʟœᴃЗwѫќþʏGɬfÅɸꞯєӳƹƩɻљꝻʃžƸЏѱʊɘәȷUЂƽʗⱷїɔʕpҍɾꝼꬳʬзѵzƿ⅁ЊxɞҠPӭįɯѓҿⱰӡqӀeĮθʘҼѼåҞЃǂyHXѠɓŻɽʈⅎvѯʖƕЋџѢYɭѶЇmчƼɴƎҩoӨҎҽҨƣꙌNƢRӲЉgaʭƧɥɜǶЄǷʑWөËsæβDʙʍuɣīѪЌſҏBѦӘJүIƄKѺMҧɮOjɟꞄżҌꞅӠѻdëhњęχŽꝛɪԑѰtɱћӏɢʡꜰlSɤҟbAᵻCʋђiLTⱭQꙍZʁѧĸѡҮɰҺɕѣᴥĒҦʔnÆ")
+
+print(char, end = "")
