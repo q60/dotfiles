@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 base_path=~/Pictures/Screenshots
 name=$(date +"%H:%M:%S").png
 year=$(date +"%Y")
